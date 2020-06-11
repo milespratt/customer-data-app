@@ -1,5 +1,6 @@
 // import dependencies
 const express = require("express");
+const path = require("path");
 
 // import routers
 const accountsRouter = require("./routes/accounts");
@@ -10,6 +11,9 @@ const app = express();
 
 // configure logging
 app.use(require("morgan")(process.env.logMode || "dev"));
+
+// serve client build
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 // configure routes
 app.use("/api/accounts", accountsRouter);
