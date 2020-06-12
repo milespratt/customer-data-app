@@ -6,7 +6,6 @@ exports.getCustomers = () => {
 };
 
 exports.getCustomer = (customerID) => {
-  console.log(customerID);
   const customer = customers.filter((customer) => {
     return customer.id == customerID;
   });

@@ -24,7 +24,6 @@ customersRouter.get("/:customerID", async (req, res) => {
     const customer = await customerController.getCustomer(customerID);
     res.json({ customer });
   } catch (error) {
-    console.log(error);
     res
       .status(error.statusCode || 500)
       .json({ error: { message: error.message } });

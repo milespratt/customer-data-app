@@ -68,7 +68,7 @@ table {
 th,
 td {
   box-sizing: border-box;
-  /* padding: 8px 16px; */
+  padding: 5px 5px;
 }
 th {
   background: #eee;

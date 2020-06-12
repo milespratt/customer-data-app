@@ -19,6 +19,14 @@ View the demo [here](https://customer-data-app.herokuapp.com).
      - You can now access the app at [http://localhost:3000](http://localhost:3000)
      - Any changes to the server or client code will cause the development environment to restart automatically.
 
+## Testing
+
+Tests are run via [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) with [Istanbul](https://istanbul.js.org/) for code coverage.
+
+New tests should be added to the `/tests` directory with a `.test.js` extension.
+
+Run tests via the `npm test` command.
+
 ## Building for Production
 
 1. Build the front-end files
