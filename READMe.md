@@ -4,9 +4,15 @@
 
 # Customer Data Application
 
-This is a simple React app with an Express API for viewing customer and account data.
+This is a simple application for viewing customer and account data.
 
-View the demo <a href="https://customer-data-app.herokuapp.com" target="_blank" rel="noreferrer noopener">here</a>.
+The data is provided by a [Node/Express](https://expressjs.com/) API. The client is built with [React](https://reactjs.org/).
+
+View the deployed app <a href="https://customer-data-app.herokuapp.com" target="_blank" rel="noreferrer noopener">here</a>.
+
+## Requirements
+
+You must have [NodeJS](https://nodejs.org/en/) installed to run this application.
 
 ## Local Development Setup
 
@@ -16,18 +22,32 @@ View the demo <a href="https://customer-data-app.herokuapp.com" target="_blank" 
    - `cd customer-data-app`
 3. Install dependencies
    - `npm run setup`
-4. Run the server
-   - Development `npm run dev`
-     - You can now access the app at [http://localhost:3000](http://localhost:3000)
+4. Run the development server
+   - `npm run dev`
+     - You can view the client in a browser at http://localhost:3000
+     - You can access the API at http://localhost:3001. View the available [endpoints](#endpoints).
      - Any changes to the server or client code will cause the development environment to restart automatically.
+
+## Endpoints
+
+When running in development or production mode, the API endpoints can be accessed at http://localhost:3001.
+
+| Path                               | Result                                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| /api/accounts                      | Returns a JSON object with an `accounts` key containing an array of all accounts.                                   |
+| /api/customers                     | Returns a JSON object with a `customers` key containing an array of all customers.                                  |
+| /api/customer/:customerID          | Returns a JSON object with a `customer` key containing an object with all customer data.                            |
+| /api/accounts/customer/:customerID | Returns a JSON object with a `customerAccounts` key containing an array of all accounts for the specified customer. |
 
 ## Testing
 
-Tests are run via [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) with [Istanbul](https://istanbul.js.org/) for code coverage.
+Express API/controller tests are run via [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) with [Istanbul](https://istanbul.js.org/) for code coverage.
 
-New tests should be added to the `/tests` directory with a `.test.js` extension.
+React App tests are run via [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) with [Jest](https://jestjs.io/).
 
-Run tests via the `npm test` command.
+New Express tests should be added to the `/tests` directory. New React tests should be added to the `/client/src/tests` directory. All tests files should have the `.test.js` extension.
+
+Run all tests with the `npm test` command.
 
 ## Building for Production
 
@@ -35,4 +55,4 @@ Run tests via the `npm test` command.
    - `npm run build`
 2. Start the production build
    - `npm start`
-3. Access the the app at [http://localhost:3001](http://localhost:3001)
+3. Access the the app at http://localhost:3001

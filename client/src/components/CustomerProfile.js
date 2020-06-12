@@ -12,3 +12,7 @@ export default function CustomerProfile(props) {
     </div>
   );
 }
+
+CustomerProfile.defaultProps = {
+  data: { key: "value" },
+};

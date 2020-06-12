@@ -7,7 +7,7 @@
     "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "build": "cd client && npm install && npm run build",
     "setup": "npm install && cd client && npm install",
-    "test": "nyc --reporter=lcov --reporter=text mocha tests/*.js --exit"
+    "test": "nyc --reporter=lcov --reporter=text mocha tests/*.js --exit && cd client && npm run testCoverage"
   },
   "dependencies": {
     "express": "~4.16.1",

@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import DataTable from "../components/DataTable";
 import CustomerProfile from "../components/CustomerProfile";
+import { endpoints, apiDataKeys } from "../constants";
+import { apiCall } from "../util";
 
 function Profile(props) {
   const { customerID } = props.match.params;
   const [customerDetails, setCustomerDetails] = useState(null);
   useEffect(() => {
-    if (!customerDetails) {
-      fetch(`/api/customers/${customerID}`)
-        .then((res) => res.json())
-        .then((jsonRes) => {
-          setCustomerDetails(jsonRes.customer);
-        });
-    }
+    apiCall(`${endpoints.customers}/${customerID}`).then((data) => {
+      setCustomerDetails(data[apiDataKeys.customer]);
+    });
   }, []);
   return (
     <div>
@@ -22,8 +20,8 @@ function Profile(props) {
         emptyMessage="Customer Has No Accounts"
         errorMessage="Could Not Load Customer Accounts"
         loadingMessage="Loading Customer Accounts..."
-        remote={`/api/accounts/customer/${customerID}`}
-        remoteKey={"customerAccounts"}
+        remote={`${endpoints.customerAccounts}/${customerID}`}
+        remoteKey={apiDataKeys.customerAccounts}
         title="Customer Accounts"
       />
     </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { apiCall } from "../util";
 
 export default function DataTable(props) {
-  const [tableData, setTableData] = useState();
+  const [tableData, setTableData] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (props.remote && !tableData) {

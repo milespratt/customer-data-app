@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "../components/DataTable";
-import { apiCall } from "../util";
+import { endpoints, paths, apiDataKeys, params } from "../constants";
 
 export default function Home() {
   return (
@@ -9,19 +9,19 @@ export default function Home() {
         emptyMessage="No Customers Found"
         errorMessage="Could Not Load Customers"
         loadingMessage="Loading Customer Records..."
-        path={"/customer"}
-        pathParam={"id"}
-        remote={"/api/customers"}
-        remoteKey={"customers"}
+        path={paths.customer}
+        pathParam={params.customer}
+        remote={endpoints.customers}
+        remoteKey={apiDataKeys.customers}
         title={"Customers"}
       />
       <DataTable
         emptyMessage="No Accounts Found"
         errorMessage="Could Not Load Accounts"
         loadingMessage="Loading Account Records..."
-        remote={"/api/accounts"}
-        remoteKey={"accounts"}
-        title={"Accounts"}
+        remote={endpoints.accounts}
+        remoteKey={apiDataKeys.accounts}
+        title="Accounts"
       />
     </div>
   );
