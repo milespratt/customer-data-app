@@ -6,7 +6,7 @@
 
 This is a simple React app with an Express API for viewing customer and account data.
 
-View the demo [here](https://customer-data-app.herokuapp.com).
+View the demo <a href="https://customer-data-app.herokuapp.com" target="_blank" rel="noreferrer noopener">here</a>.
 
 ## Local Development Setup
 
