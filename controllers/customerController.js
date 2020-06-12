@@ -6,14 +6,18 @@ exports.getCustomers = () => {
 };
 
 exports.getCustomer = (customerID) => {
-  const customer = customers.filter((customer) => {
-    return customer.id == customerID;
-  });
+  let customer;
+  for (const customerRecord of customers) {
+    if (customerRecord.id == customerID) {
+      customer = customerRecord;
+      break;
+    }
+  }
 
   // if customer, send it
-  if (customer.length === 1) {
-    return customer[0];
-  } else if (customer.length === 0) {
+  if (customer) {
+    return customer;
+  } else {
     // 404 if no customer found
     const error = new Error("Customer not found");
     error.statusCode = 404;

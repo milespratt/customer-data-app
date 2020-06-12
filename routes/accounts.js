@@ -7,29 +7,17 @@ const accountController = require("../controllers/accountController");
 
 // get all accounts
 accountsRouter.get("/", async (req, res) => {
-  try {
-    const accounts = accountController.getAccounts();
-    res.json({ accounts });
-  } catch (error) {
-    res
-      .status(error.statusCode || 500)
-      .json({ error: { message: error.message } });
-  }
+  const accounts = accountController.getAccounts();
+  res.json({ accounts });
 });
 
 // get all accounts for a customer
 accountsRouter.get("/customer/:customerID", async (req, res) => {
   const { customerID } = req.params;
-  try {
-    const customerAccounts = await accountController.getCustomerAccounts(
-      customerID
-    );
-    res.json({ customerAccounts });
-  } catch (error) {
-    res
-      .status(error.statusCode || 500)
-      .json({ error: { message: error.message } });
-  }
+  const customerAccounts = await accountController.getCustomerAccounts(
+    customerID
+  );
+  res.json({ customerAccounts });
 });
 
 module.exports = accountsRouter;
