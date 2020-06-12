@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 import DataTable from "../components/DataTable";
+import CustomerProfile from "../components/CustomerProfile";
 
 function Profile(props) {
   const { customerID } = props.match.params;
@@ -11,7 +12,6 @@ function Profile(props) {
       fetch(`/api/customers/${customerID}`)
         .then((res) => res.json())
         .then((jsonRes) => {
-          console.log(jsonRes);
           setCustomerDetails(jsonRes.customer);
         });
     }
@@ -19,15 +19,14 @@ function Profile(props) {
       fetch(`/api/accounts/customer/${customerID}`)
         .then((res) => res.json())
         .then((jsonRes) => {
-          console.log(jsonRes);
           setCustomerAccounts(jsonRes.customerAccounts);
         });
     }
   }, []);
   return (
     <div>
-      {/* <DataTable data={customerDetails} /> */}
-      <DataTable data={customerAccounts} />
+      <CustomerProfile data={customerDetails} />
+      <DataTable title="Customer Accounts" data={customerAccounts} />
     </div>
   );
 }

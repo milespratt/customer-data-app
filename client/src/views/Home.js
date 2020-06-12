@@ -9,7 +9,6 @@ export default function Home() {
       fetch("/api/customers")
         .then((res) => res.json())
         .then((jsonRes) => {
-          console.log(jsonRes);
           setCustomerList(jsonRes.customers);
         });
     }
@@ -17,7 +16,6 @@ export default function Home() {
       fetch("/api/accounts")
         .then((res) => res.json())
         .then((jsonRes) => {
-          console.log(jsonRes);
           setAccountList(jsonRes.accounts);
         });
     }
@@ -25,12 +23,12 @@ export default function Home() {
   return (
     <div className="home">
       <DataTable
-        title={"customers"}
+        title={"Customers"}
         data={customerList}
         path={"/customer"}
         pathParam={"id"}
       />
-      <DataTable title={"accounts"} data={accountList} />
+      <DataTable title={"Accounts"} data={accountList} />
     </div>
   );
 }

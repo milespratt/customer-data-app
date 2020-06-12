@@ -1,18 +1,28 @@
+<img align="right" width="100" height="100" src="./client/public/logo512.png" />
+
 # Customer Data Application
 
-This is a simple Node/Express server that provides endpoints for viewing customers and their accounts.
+This is a simple React app with an Express API for viewing customer and account data.
 
-## Setup
+View the demo [here](https://customer-data-app.herokuapp.com).
+
+## Local Development Setup
 
 1. Clone the repository
-   `git clone https://github.com/milespratt/customer-data-app.git`
+   - `git clone https://github.com/milespratt/customer-data-app.git`
 2. Navigate to the new directory
-   `cd customer-data-app`
+   - `cd customer-data-app`
 3. Install dependencies
-   `npm run setup`
+   - `npm run setup`
 4. Run the server
-   - Production `npm start`
-     - You can now access the app at [http://localhost:3001](http://localhost:3001)
    - Development `npm run dev`
      - You can now access the app at [http://localhost:3000](http://localhost:3000)
      - Any changes to the server or client code will cause the development environment to restart automatically.
+
+## Building for Production
+
+1. Build the front-end files
+   - `npm run build`
+2. Start the production build
+   - `npm start`
+3. Access the the app at [http://localhost:3001](http://localhost:3001)

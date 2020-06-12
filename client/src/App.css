@@ -1,3 +1,75 @@
+.App {
+  max-height: 100vh;
+  overflow: hidden;
+}
+/* HOME VIEW */
 .home {
   display: flex;
+  max-height: calc(100vh - 10rem);
+  box-sizing: border-box;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+
+/* HEADER */
+.header {
+  height: 10rem;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.header__logo__image {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.header__message {
+  font-size: 1.6rem;
+}
+
+/* DATA TABLES */
+.data__table__wrapper {
+  display: grid;
+  grid-template-rows: 3rem 1fr;
+}
+
+.data__table__title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.data__table {
+  overflow-y: auto;
+  max-height: 100%;
+  margin: 0 20px;
+  max-width: 800px;
+}
+
+.data__table__wrapper thead th {
+  position: sticky;
+  top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  box-sizing: border-box;
+  /* padding: 8px 16px; */
+}
+th {
+  background: #eee;
 }
