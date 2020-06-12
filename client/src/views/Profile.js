@@ -6,7 +6,6 @@ import CustomerProfile from "../components/CustomerProfile";
 function Profile(props) {
   const { customerID } = props.match.params;
   const [customerDetails, setCustomerDetails] = useState(null);
-  const [customerAccounts, setCustomerAccounts] = useState(null);
   useEffect(() => {
     if (!customerDetails) {
       fetch(`/api/customers/${customerID}`)
@@ -15,18 +14,18 @@ function Profile(props) {
           setCustomerDetails(jsonRes.customer);
         });
     }
-    if (!customerAccounts) {
-      fetch(`/api/accounts/customer/${customerID}`)
-        .then((res) => res.json())
-        .then((jsonRes) => {
-          setCustomerAccounts(jsonRes.customerAccounts);
-        });
-    }
   }, []);
   return (
     <div>
       <CustomerProfile data={customerDetails} />
-      <DataTable title="Customer Accounts" data={customerAccounts} />
+      <DataTable
+        emptyMessage="Customer Has No Accounts"
+        errorMessage="Could Not Load Customer Accounts"
+        loadingMessage="Loading Customer Accounts..."
+        remote={`/api/accounts/customer/${customerID}`}
+        remoteKey={"customerAccounts"}
+        title="Customer Accounts"
+      />
     </div>
   );
 }

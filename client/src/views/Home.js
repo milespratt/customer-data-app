@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "../components/DataTable";
+import { apiCall } from "../util";
 
 export default function Home() {
-  const [customerList, setCustomerList] = useState(null);
-  const [accountList, setAccountList] = useState(null);
-  useEffect(() => {
-    if (!customerList) {
-      fetch("/api/customers")
-        .then((res) => res.json())
-        .then((jsonRes) => {
-          setCustomerList(jsonRes.customers);
-        });
-    }
-    if (!accountList) {
-      fetch("/api/accounts")
-        .then((res) => res.json())
-        .then((jsonRes) => {
-          setAccountList(jsonRes.accounts);
-        });
-    }
-  }, []);
   return (
     <div className="home">
       <DataTable
-        title={"Customers"}
-        data={customerList}
+        emptyMessage="No Customers Found"
+        errorMessage="Could Not Load Customers"
+        loadingMessage="Loading Customer Records..."
         path={"/customer"}
         pathParam={"id"}
+        remote={"/api/customers"}
+        remoteKey={"customers"}
+        title={"Customers"}
       />
-      <DataTable title={"Accounts"} data={accountList} />
+      <DataTable
+        emptyMessage="No Accounts Found"
+        errorMessage="Could Not Load Accounts"
+        loadingMessage="Loading Account Records..."
+        remote={"/api/accounts"}
+        remoteKey={"accounts"}
+        title={"Accounts"}
+      />
     </div>
   );
 }
