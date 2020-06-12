@@ -1,4 +1,5 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/c4b46a62b79c11ead065/maintainability)](https://codeclimate.com/github/milespratt/customer-data-app/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c4b46a62b79c11ead065/test_coverage)](https://codeclimate.com/github/milespratt/customer-data-app/test_coverage) [![Build Status](https://travis-ci.com/milespratt/customer-data-app.svg?branch=master)](https://travis-ci.com/milespratt/customer-data-app)
+[![Build Status](https://travis-ci.com/milespratt/customer-data-app.svg?branch=master)](https://travis-ci.com/milespratt/customer-data-app) [![Maintainability](https://api.codeclimate.com/v1/badges/c4b46a62b79c11ead065/maintainability)](https://codeclimate.com/github/milespratt/customer-data-app/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c4b46a62b79c11ead065/test_coverage)](https://codeclimate.com/github/milespratt/customer-data-app/test_coverage)
+
 <img align="right" width="100" height="100" src="./client/public/logo512.png" />
 
 # Customer Data Application
