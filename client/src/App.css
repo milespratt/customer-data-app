@@ -179,3 +179,43 @@
 .profile__table__label {
   font-weight: bold;
 }
+
+@media (max-width: 1140px) {
+  /* HEADER */
+  .header {
+    padding: 0 1rem;
+  }
+  /* DATA TABLES */
+  .profile .data__table__container {
+    padding: 0;
+  }
+  .data__table__container {
+    padding: 0 1rem;
+  }
+
+  /* PROFILE */
+  .profile {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    height: 100%;
+    padding: 0 1rem;
+    grid-template-areas:
+      "header"
+      "profile"
+      "table";
+  }
+  .profile__header {
+    height: 5rem;
+  }
+  .profile__header {
+    grid-area: header;
+  }
+  .profile__table {
+    grid-area: profile;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1rem;
+  }
+  .profile__table__row {
+    grid-template-columns: auto 1fr;
+  }
+}
