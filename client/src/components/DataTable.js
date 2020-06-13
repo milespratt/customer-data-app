@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { apiCall, makeLabel } from "../util";
+import { apiCall, makeLabel, renderValue } from "../util";
 
 export default function DataTable(props) {
   const [tableData, setTableData] = useState(null);
@@ -24,15 +24,6 @@ export default function DataTable(props) {
       return "data__table__row data__table__row--inactive";
     } else {
       return "data__table__row";
-    }
-  }
-
-  // renders active values to yes/no instead of 0 or 1.
-  function renderValue(key, value, activeKey, activeValue) {
-    if (activeKey && key === activeKey) {
-      return value === activeValue ? "Yes" : "No";
-    } else {
-      return value;
     }
   }
 

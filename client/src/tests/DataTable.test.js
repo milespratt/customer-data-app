@@ -29,7 +29,7 @@ test("it should render links when given path and param", () => {
 
 test("it should render active and inactive rows when provided with appropriate props", () => {
   const data = [
-    { key: "value", active: 1 },
+    { id: "value", active: 1 },
     { key: "value", active: 0 },
   ];
   render(

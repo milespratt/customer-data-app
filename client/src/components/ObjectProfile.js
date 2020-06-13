@@ -1,5 +1,5 @@
 import React from "react";
-import { makeLabel } from "../util";
+import { makeLabel, renderValue } from "../util";
 
 export default function ObjectProfile(props) {
   return (
@@ -14,7 +14,12 @@ export default function ObjectProfile(props) {
                   {`${makeLabel(dataKey)}:`}
                 </div>
                 <div className="profile__table__cell profile__table__value">
-                  {props.data[dataKey]}
+                  {renderValue(
+                    dataKey,
+                    props.data[dataKey],
+                    props.activeKey,
+                    props.activeValue
+                  )}
                 </div>
               </div>
             );
@@ -25,6 +30,8 @@ export default function ObjectProfile(props) {
 }
 
 ObjectProfile.defaultProps = {
+  activeKey: "active",
+  activeValue: 1,
   data: { key: "value" },
   title: "Object Profile",
 };

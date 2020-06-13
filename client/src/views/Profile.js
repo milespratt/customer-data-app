@@ -21,7 +21,12 @@ function Profile(props) {
           <span className="profile__nav__item__label">Go Back</span>
         </Link>
       </div>
-      <ObjectProfile data={customerDetails} title="Customer Profile" />
+      <ObjectProfile
+        data={customerDetails}
+        title="Customer Profile"
+        activeKey="active"
+        activeValue={1}
+      />
       <DataTable
         emptyMessage="Customer Has No Accounts"
         errorMessage="Could Not Load Customer Accounts"

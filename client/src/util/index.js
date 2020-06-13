@@ -14,3 +14,12 @@ export const makeLabel = (string) => {
   });
   return label.join(" ");
 };
+
+// renders active values to yes/no instead of 0 or 1.
+export const renderValue = (key, value, activeKey, activeValue) => {
+  if (activeKey && key === activeKey) {
+    return value === activeValue ? "Yes" : "No";
+  } else {
+    return value;
+  }
+};
