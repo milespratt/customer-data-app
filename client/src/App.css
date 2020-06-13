@@ -148,6 +148,10 @@
   color: black;
 }
 
+.profile__nav__item:hover {
+  text-decoration: underline;
+}
+
 .profile__nav__item__icon {
   margin-right: 5px;
 }
