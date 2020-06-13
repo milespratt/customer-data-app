@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CustomerProfile from "../components/CustomerProfile";
+import ObjectProfile from "../components/ObjectProfile";
 
 test("it should render", () => {
-  render(<CustomerProfile />);
+  render(<ObjectProfile />);
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import DataTable from "../components/DataTable";
-import CustomerProfile from "../components/CustomerProfile";
+import ObjectProfile from "../components/ObjectProfile";
 import { endpoints, apiDataKeys } from "../constants";
 import { apiCall } from "../util";
 
@@ -12,10 +12,16 @@ function Profile(props) {
     apiCall(`${endpoints.customers}/${customerID}`).then((data) => {
       setCustomerDetails(data[apiDataKeys.customer]);
     });
-  }, []);
+  }, [customerID]);
   return (
-    <div>
-      <CustomerProfile data={customerDetails} />
+    <div className="profile">
+      <div className="profile__header">
+        <Link className="profile__nav__item" to="/">
+          <i className="fas fa-arrow-circle-left profile__nav__item__icon"></i>
+          <span className="profile__nav__item__label">Go Back</span>
+        </Link>
+      </div>
+      <ObjectProfile data={customerDetails} title="Customer Profile" />
       <DataTable
         emptyMessage="Customer Has No Accounts"
         errorMessage="Could Not Load Customer Accounts"

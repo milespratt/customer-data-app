@@ -27,6 +27,24 @@ test("it should render links when given path and param", () => {
   );
 });
 
+test("it should render active and inactive rows when provided with appropriate props", () => {
+  const data = [
+    { key: "value", active: 1 },
+    { key: "value", active: 0 },
+  ];
+  render(
+    <Router>
+      <DataTable
+        data={data}
+        path="/"
+        pathParam="id"
+        activeKey="active"
+        activeValue={1}
+      />
+    </Router>
+  );
+});
+
 test("it should perform an API call if provided a remote path", async () => {
   const data = [{ key: "value" }];
   const promise = Promise.resolve({

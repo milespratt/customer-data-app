@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DataTable from "../components/DataTable";
 import { endpoints, paths, apiDataKeys, params } from "../constants";
 
@@ -14,6 +14,8 @@ export default function Home() {
         remote={endpoints.customers}
         remoteKey={apiDataKeys.customers}
         title={"Customers"}
+        activeKey="active"
+        activeValue={1}
       />
       <DataTable
         emptyMessage="No Accounts Found"
